@@ -1,0 +1,222 @@
+$date
+	Tue Jan 14 11:41:40 2025
+$end
+$version
+	Icarus Verilog
+$end
+$timescale
+	1s
+$end
+$scope module maquina_tb $end
+$var wire 1 ! LED $end
+$var wire 1 " G $end
+$var wire 1 # F $end
+$var wire 1 $ E $end
+$var wire 1 % D $end
+$var wire 1 & C $end
+$var wire 1 ' B $end
+$var wire 1 ( A $end
+$var reg 1 ) clk $end
+$var reg 1 * insere $end
+$var reg 4 + numero [4:1] $end
+$var reg 1 , reset $end
+$scope module tb_maquina $end
+$var wire 1 ) clk $end
+$var wire 1 * insere $end
+$var wire 4 - numero [4:1] $end
+$var wire 1 , reset $end
+$var reg 1 ( A $end
+$var reg 1 ' B $end
+$var reg 1 & C $end
+$var reg 1 % D $end
+$var reg 1 $ E $end
+$var reg 1 # F $end
+$var reg 1 " G $end
+$var reg 1 ! LED $end
+$var reg 1 . controle $end
+$var reg 4 / estado [3:0] $end
+$var reg 4 0 proximo_estado [3:0] $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+bx 0
+bx /
+0.
+bx -
+0,
+bx +
+0*
+0)
+x(
+x'
+x&
+x%
+x$
+x#
+x"
+0!
+$end
+#5
+b0 /
+1,
+1)
+#10
+0,
+0)
+#15
+1"
+1#
+0$
+1%
+1&
+0'
+1(
+bx /
+b101 +
+b101 -
+1)
+#20
+1*
+0)
+#25
+0*
+1)
+#30
+b1001 +
+b1001 -
+0)
+#35
+b0 0
+1*
+1)
+#40
+0*
+0)
+#45
+0"
+1$
+1'
+b0 /
+b0 +
+b0 -
+1)
+#50
+1*
+0)
+#55
+0*
+1)
+#60
+b1001 +
+b1001 -
+0)
+#65
+1!
+1*
+1)
+#70
+0*
+0)
+#75
+b1000 +
+b1000 -
+1)
+#80
+1*
+0)
+#85
+0*
+1)
+#90
+b1 +
+b1 -
+0)
+#95
+b1111 0
+1*
+1)
+#100
+0*
+0)
+#105
+1,
+1)
+#110
+0,
+0)
+#115
+0#
+0$
+0(
+b1111 /
+1)
+#120
+1*
+0)
+#125
+0*
+1)
+#130
+b1001 +
+b1001 -
+0)
+#135
+b0 0
+1*
+1)
+#140
+0*
+0)
+#145
+1#
+1$
+1(
+b0 /
+b0 +
+b0 -
+1)
+#150
+1*
+0)
+#155
+0*
+1)
+#160
+b1001 +
+b1001 -
+0)
+#165
+0#
+0$
+0(
+b1111 /
+b1111 0
+1*
+1)
+#170
+0*
+0)
+#175
+b1000 +
+b1000 -
+1)
+#180
+1*
+0)
+#185
+b1 +
+b1 -
+0*
+1)
+#190
+1*
+0)
+#195
+0*
+1)
+#200
+0)
+#205
+1)
