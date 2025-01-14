@@ -28,7 +28,7 @@ module maquina_tb ();
         #20
         numero = 4'b0000;
 
-        #20
+        #30
         numero = 4'b1001;
 
         #30

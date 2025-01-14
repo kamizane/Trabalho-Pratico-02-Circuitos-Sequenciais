@@ -1,5 +1,5 @@
 $date
-	Tue Jan 14 18:05:11 2025
+	Tue Jan 14 19:53:26 2025
 $end
 $version
 	Icarus Verilog
@@ -33,15 +33,17 @@ $var reg 1 $ E $end
 $var reg 1 # F $end
 $var reg 1 " G $end
 $var reg 1 ! LED $end
-$var reg 4 . estado [3:0] $end
-$var reg 4 / proximo_estado [3:0] $end
+$var reg 1 . controle $end
+$var reg 4 / estado [3:0] $end
+$var reg 4 0 proximo_estado [3:0] $end
 $upscope $end
 $upscope $end
 $enddefinitions $end
 #0
 $dumpvars
+b0 0
 b0 /
-b0 .
+0.
 b101 -
 0,
 b101 +
@@ -59,18 +61,18 @@ $end
 #5
 0)
 #10
-b101 /
+b101 0
 1)
 #15
 0)
 #20
-b101 .
 b101 /
+b101 0
 1)
 #25
 0)
 #30
-b1001 /
+b1001 0
 1)
 b1001 +
 b1001 -
@@ -78,41 +80,40 @@ b1001 -
 0)
 #40
 0'
-b1001 .
 b1001 /
+b1001 0
 1)
 #45
 0)
 #50
-b0 /
+1.
+b0 0
 1)
 b0 +
 b0 -
 #55
 0)
 #60
-1"
-0$
-b0 .
-b0 /
+1!
+b1001 0
 1)
 #65
 0)
 #70
-1!
+b1111 0
 1)
-b1001 +
-b1001 -
 #75
 0)
 #80
-0"
+0$
 1%
 1&
 1'
-b1111 .
 b1111 /
+b1111 0
 1)
+b1001 +
+b1001 -
 #85
 0)
 #90
@@ -121,12 +122,12 @@ b1111 /
 0)
 #100
 1)
-b1000 +
-b1000 -
 #105
 0)
 #110
 1)
+b1000 +
+b1000 -
 #115
 0)
 #120
@@ -135,9 +136,13 @@ b1000 -
 0)
 #130
 1)
-b1 +
-b1 -
 #135
 0)
 #140
+1)
+b1 +
+b1 -
+#145
+0)
+#150
 1)

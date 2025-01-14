@@ -13,6 +13,7 @@ module maquina(
     parameter um = 4'b0001;
     parameter falha = 4'b1111;
 
+    reg controle = 0;
     reg [3:0] estado;
     reg [3:0] proximo_estado;
     
@@ -20,6 +21,7 @@ module maquina(
         if (reset)  begin
             estado <= inicial;
             LED = 0;
+            controle = 0;
         end
         else begin 
             estado <= proximo_estado;
@@ -53,15 +55,33 @@ module maquina(
                     end
                 end
             nove:
-                if (LED) begin
-                    if (numero == 4'b0000) proximo_estado = zero;
+                if (controle == 1) begin
+                    if (LED) begin
+                        if (numero == 4'b1000) proximo_estado = oito;
                     else                proximo_estado = falha;
-                end
-                else begin
-                    if (numero == 4'b0000) proximo_estado = zero;
+                    end
                     else begin
+                        if (numero == 4'b1000) proximo_estado = oito;
+                        else begin
                         proximo_estado = nove;
                         LED = 1;
+                            end
+                    end
+                end
+                else begin
+                    if (LED) begin
+                        if (numero == 4'b0000) proximo_estado = zero;
+                        else                proximo_estado = falha;
+                        controle = 1;
+                    end
+                    else begin
+                        
+                        if (numero == 4'b0000) proximo_estado = zero;
+                        else begin
+                            proximo_estado = nove;
+                            LED = 1;
+                        end
+                        controle = 1;
                     end
                 end
             zero:
@@ -73,18 +93,6 @@ module maquina(
                     if (numero == 4'b1001) proximo_estado = nove_final;
                     else begin
                         proximo_estado = zero;
-                        LED = 1;
-                    end
-                end
-            nove_final:
-                if (LED) begin
-                    if (numero == 4'b1000) proximo_estado = oito;
-                    else                proximo_estado = falha;
-                end
-                else begin
-                    if (numero == 4'b1000) proximo_estado = oito;
-                    else begin
-                        proximo_estado = nove_final;
                         LED = 1;
                     end
                 end
