@@ -11,13 +11,22 @@ module maquina (
     parameter um = 4'b0001;
     parameter falha = 4'b1111;
 
+    reg controle = 1'b0;
     reg [3:0] estado;
     reg [3:0] proximo_estado
-
     always @(posedge clk) begin
         if (reset)  estado = inicial;
-        else        estado = proximo_estado;
-//duvida na linha a cima
+        else begin
+            if (LED & controle) begin
+                estado = proximo_estado;
+            A <= ;
+            B <= ;
+            C <= ;
+            D <= ;
+            E <= ;
+            F <= ;
+            G <= ;
+                
     end
 
     always @(numero or estado) begin
