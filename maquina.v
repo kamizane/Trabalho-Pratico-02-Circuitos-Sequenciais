@@ -8,7 +8,7 @@ module maquina(
     parameter cinco = 4'b0101;
     parameter nove = 4'b1001;
     parameter zero = 4'b0000;
-    parameter nove_final = 4'b0101;
+    parameter nove_final = 4'b1001;
     parameter oito = 4'b1000;
     parameter um = 4'b0001;
     parameter falha = 4'b1111;
