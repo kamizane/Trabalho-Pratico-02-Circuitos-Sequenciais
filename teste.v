@@ -2,7 +2,7 @@ module maquina (
     input clk, reset, insere, numero,
     output reg LED, A, B, C, D, E, F, G
 );
-    parameter inicial;
+    parameter inicial = 4'b0000;
     parameter cinco = 4'b0101;
     parameter nove = 4'b1001;
     parameter zero = 4'b0000;
@@ -15,6 +15,9 @@ module maquina (
     reg [3:0] proximo_estado
 
     always @(posedge clk) begin
-        if (reset)  estado = zero
+        if (reset)  estado = inicial;
+        else        estado = proximo_estado;
     end
+
+    always @()
 endmodule
