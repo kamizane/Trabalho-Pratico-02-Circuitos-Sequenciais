@@ -21,15 +21,15 @@ module maquina(
     reg teste3 = 0;
 
     always @(posedge clk) begin
-        if (reset)  begin
+        if (reset == 1'b0)  begin
             estado <= inicial;
         end
-        else begin f
+        else begin 
             estado <= proximo_estado;
         end
     end
 
-    always @(posedge insere) begin
+    always @(negedge insere) begin
         proximo_estado = estado;
         case (estado)
             um:
@@ -113,7 +113,7 @@ module maquina(
                 proximo_estado = inicial;
         endcase
     end
-    always @(estado) begin
+    always @(negedge insere) begin
         if (estado == um & LED == 1) begin
             A <= 1'b0;
             B <= 1'b0;
