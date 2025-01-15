@@ -8,7 +8,7 @@ module maquina(
     parameter cinco = 4'b0101;
     parameter nove = 4'b1001;
     parameter zero = 4'b0000;
-    parameter nove_final = 4'b1001;
+    parameter nove_final= 4'b0010;
     parameter oito = 4'b1000;
     parameter um = 4'b0001;
     parameter falha = 4'b1111;
@@ -66,11 +66,12 @@ module maquina(
                 end
             zero:
                 if (LED) begin
-                    if (numero == 4'b1001) proximo_estado = nove_final;
+                    
+                    if (numero == 4'b0010) proximo_estado = nove_final;
                     else                proximo_estado = falha;
                 end
                 else begin
-                    if (numero == 4'b1001) proximo_estado = nove_final;
+                    if (numero == 4'b0010) proximo_estado = nove_final;
                     else begin
                         proximo_estado = zero;
                         LED = 1;
@@ -114,15 +115,7 @@ module maquina(
             F <= 1'b0;
             G <= 1'b0;
         end
-        // else if (estado == inicial) begin
-        //     A <= 1'b1;
-        //     B <= 1'b1;
-        //     C <= 1'b1;
-        //     D <= 1'b1;
-        //     E <= 1'b1;
-        //     F <= 1'b1;
-        //     G <= 1'b1;
-        // end
+
         else if (estado == um & LED == 0) begin
             A <= 1'b0;
             B <= 1'b1;

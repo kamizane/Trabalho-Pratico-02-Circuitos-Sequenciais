@@ -29,7 +29,7 @@ module maquina_tb ();
         numero = 4'b0000;
 
         #20
-        numero = 4'b1001;
+        numero = 4'b0010;
 
         #30
         numero = 4'b1000;
