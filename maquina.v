@@ -4,7 +4,7 @@ module maquina(
     output reg LED = 0,
     output reg A, B, C, D, E, F, G
 );
-    parameter inicial = 4'b0000;
+    parameter inicial = 4'b1110;
     parameter cinco = 4'b0101;
     parameter nove = 4'b1001;
     parameter zero = 4'b0000;
@@ -16,6 +16,10 @@ module maquina(
     reg [3:0] estado;
     reg [3:0] proximo_estado;
     
+    reg teste1 = 0;
+    reg teste2 = 0;
+    reg teste3 = 0;
+
     always @(posedge clk) begin
         if (reset)  begin
             estado <= inicial;
@@ -29,6 +33,8 @@ module maquina(
     always @(posedge clk) begin
         proximo_estado = estado;
         case (estado)
+            um:
+                proximo_estado = um;
             falha:
                 proximo_estado = falha;
             inicial:
@@ -54,29 +60,32 @@ module maquina(
                 end
             nove:
                 if (LED) begin
-                    if (numero == 4'b0000) proximo_estado = zero;
+                    if (numero == 4'b0000) proximo_estado =zero;
                     else                proximo_estado = falha;
                 end
                 else begin
-                    if (numero == 4'b0000) proximo_estado = zero;
+                    if (numero == 4'b0000) proximo_estado =zero;
                     else begin
                         proximo_estado = nove;
                         LED = 1;
                     end
                 end
-            zero:
+            zero: begin
+                teste3 = 0;
                 if (LED) begin
-                    
+                    teste1 = 0;
                     if (numero == 4'b0010) proximo_estado = nove_final;
                     else                proximo_estado = falha;
                 end
                 else begin
+                    teste2 =1;
                     if (numero == 4'b0010) proximo_estado = nove_final;
                     else begin
                         proximo_estado = zero;
                         LED = 1;
                     end
                 end
+            end
             nove_final:
                 if (LED) begin
                     if (numero == 4'b1000) proximo_estado = oito;

@@ -9,7 +9,8 @@ module maquina_tb ();
 
     always begin
         #5
-        clk = ~clk;
+        clk <= ~clk;
+        insere <= ~insere;
     end
     initial begin
         $dumpfile("maquina.vcd");
@@ -31,13 +32,38 @@ module maquina_tb ();
         #20
         numero = 4'b0010;
 
-        #30
+        #20
         numero = 4'b1000;
 
-        #30
+        #20
         numero = 4'b0001;
 
 //-------------------------------------------------------------------------------------
+
+        #20
+        reset = 1'b1;
+        #20
+        reset = 0;
+        numero = 4'b0101;
+
+
+        #20
+        numero = 4'b1001;
+
+        #20
+        numero = 4'b0100;
+
+        #10
+        numero = 4'b0000;
+
+        #20
+        numero = 4'b0010;
+
+        #20
+        numero = 4'b1000;
+
+        #20
+        numero = 4'b0001;
         #10 $finish;
     end
 endmodule
