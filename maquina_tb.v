@@ -10,7 +10,6 @@ module maquina_tb ();
     always begin
         #5
         clk <= ~clk;
-        insere <= ~insere;
     end
     initial begin
         $dumpfile("maquina.vcd");
@@ -19,28 +18,49 @@ module maquina_tb ();
         $monitor("%b%b%b%b   %b %b %b %b %b %b %b %b %b",numero[4],numero[3], numero[2], numero[1], A,B,C,D,E,F,G,LED,reset);
 
         reset = 1'b1;
-        clk = 1; insere = 1;
+        clk = 1;
         numero = 4'b0101;
+        #10
+        insere = 1;
         reset = 0;
 
-        #30
+        #10
+        insere = 0;
+        #20
         numero = 4'b1001;
+        insere = 1;
 
-        #20
+        #10
+        insere =0;
+        #10
         numero = 4'b0000;
+        insere = 1;
+        #10
+        insere = 0;
 
-        #20
+        #10
         numero = 4'b0010;
+        insere = 1;
 
-        #20
+        #10
+        insere =0;
+
+        #10
         numero = 4'b1000;
+        insere =1;
 
-        #20
+        #10
+        insere =0;
+
+
+        #10
         numero = 4'b0001;
+        insere =1;
 
 //-------------------------------------------------------------------------------------
 
-        #20
+        #
+        insere =0;
         reset = 1'b1;
         #20
         reset = 0;

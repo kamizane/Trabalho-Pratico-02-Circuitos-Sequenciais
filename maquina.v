@@ -30,7 +30,7 @@ module maquina(
         end
     end
 
-    always @(posedge clk) begin
+    always @(posedge insere) begin
         proximo_estado = estado;
         case (estado)
             um:
