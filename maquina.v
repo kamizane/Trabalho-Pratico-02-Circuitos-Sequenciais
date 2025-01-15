@@ -1,7 +1,7 @@
 module maquina(
     input clk, reset, insere,
     input [4:1] numero,
-    output reg LED = 0,
+    output reg LED =0,
     output reg A, B, C, D, E, F, G
 );
     parameter inicial = 4'b1110;
@@ -23,9 +23,8 @@ module maquina(
     always @(posedge clk) begin
         if (reset)  begin
             estado <= inicial;
-            LED = 0;
         end
-        else begin 
+        else begin f
             estado <= proximo_estado;
         end
     end
