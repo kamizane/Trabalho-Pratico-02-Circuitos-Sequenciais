@@ -10,7 +10,7 @@ module maquina(
     parameter zero = 4'b0011;
     parameter nove_final= 4'b0100;
     parameter oito = 4'b0101;
-    parameter um = 4'b0110;
+    parameter um = 4'b1100;
     parameter falha = 4'b1111;
 
     reg [3:0] estado;
