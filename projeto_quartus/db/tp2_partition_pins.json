@@ -1,0 +1,69 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "LED",
+					"strict" : false
+				},
+				{
+					"name" : "A",
+					"strict" : false
+				},
+				{
+					"name" : "B",
+					"strict" : false
+				},
+				{
+					"name" : "C",
+					"strict" : false
+				},
+				{
+					"name" : "D",
+					"strict" : false
+				},
+				{
+					"name" : "E",
+					"strict" : false
+				},
+				{
+					"name" : "F",
+					"strict" : false
+				},
+				{
+					"name" : "G",
+					"strict" : false
+				},
+				{
+					"name" : "insere",
+					"strict" : false
+				},
+				{
+					"name" : "numero[2]",
+					"strict" : false
+				},
+				{
+					"name" : "numero[3]",
+					"strict" : false
+				},
+				{
+					"name" : "numero[1]",
+					"strict" : false
+				},
+				{
+					"name" : "numero[4]",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
