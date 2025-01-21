@@ -1,9 +1,11 @@
 module maquina(
+    //declaração das entradas e saídas
     input clk, reset, insere,
     input [4:1] numero,
     output reg LED =0,
     output reg A, B, C, D, E, F, G
 );
+//assinalamento de estados
     parameter inicial = 4'b0000;
     parameter cinco = 4'b0001;
     parameter nove = 4'b0010;
@@ -13,12 +15,13 @@ module maquina(
     parameter um = 4'b1100;
     parameter falha = 4'b1111;
 
+//variáveis de estado
     reg [3:0] estado;
     reg [3:0] proximo_estado;
     
-
+//transição entre estados
     always @(posedge clk) begin
-        if (reset == 1'b0)  begin
+        if (reset == 1'b1)  begin
             estado <= inicial;
         end
         else begin 
@@ -27,7 +30,7 @@ module maquina(
     end
 
     always @(posedge clk) begin
-		if (insere == 1'b0) begin
+		if (insere == 1'b1) begin
         case (estado)
             um:
                 proximo_estado = um;
@@ -108,59 +111,59 @@ module maquina(
         endcase
 		  end
 		  else begin
-		  if (reset == 1'b0) begin
+		  if (reset == 1'b1) begin
 					proximo_estado = inicial;
 					LED = 0;
 			end
 		  end
     end
     always @(clk) begin
-		  if (reset == 1'b0) begin
-			A <= 1'b0;
-            B <= 1'b0;
-            C <= 1'b0;
-            D <= 1'b0;
-            E <= 1'b0;
-            F <= 1'b0;
-            G <= 1'b1;
+		  if (reset == 1'b1) begin
+			A <= 1'b1;
+            B <= 1'b1;
+            C <= 1'b1;
+            D <= 1'b1;
+            E <= 1'b1;
+            F <= 1'b1;
+            G <= 1'b0;
 		  
 		  end
         else if (estado == um & LED == 1) begin
-            A <= 1'b0;
-            B <= 1'b0;
-            C <= 1'b1;
-            D <= 1'b1;
-            E <= 1'b0;
-            F <= 1'b0;
-            G <= 1'b0;
-        end
-
-        else if (estado == um & LED == 0) begin
-            A <= 1'b0;
+            A <= 1'b1;
             B <= 1'b1;
             C <= 1'b0;
             D <= 1'b0;
             E <= 1'b1;
-            F <= 1'b0;
-            G <= 1'b0;
+            F <= 1'b1;
+            G <= 1'b1;
         end
-        else if (estado == falha) begin
-            A <= 1'b0;
-            B <= 1'b1;
+
+        else if (estado == um & LED == 0) begin
+            A <= 1'b1;
+            B <= 1'b0;
             C <= 1'b1;
             D <= 1'b1;
             E <= 1'b0;
-            F <= 1'b0;
-            G <= 1'b0;
+            F <= 1'b1;
+            G <= 1'b1;
         end
-        else if (insere == 1'b0) begin
-            A <= ~(((~numero[4])&numero[2])|((~numero[4])&(~numero[3])&(~numero[1]))|((~numero[4])&numero[3]&numero[1])|(numero[4]&(~numero[3])&(~numero[2])));
-            B <= ~(((~numero[4])&(~numero[3]))|((~numero[3]&(~numero[2])))|((~numero[4])&(~numero[2])&(~numero[1]))|((~numero[4])&numero[2]&numero[1]));
-            C <= ~(((~numero[3])&(~numero[2]))|((~numero[4])&numero[1])|((~numero[4])&numero[3]));
-            D <= ~(((~numero[4])&(~numero[3])&(~numero[1]))|((~numero[4])&(~numero[3])&numero[2])|((~numero[4])&numero[2]&(~numero[1]))|(numero[4]&(~numero[3])&(~numero[2]))|((~numero[4])&(numero[3])&(~numero[2])&numero[1]));
-            E <= ~(((~numero[3])&(~numero[2])&(~numero[1]))|((~numero[4])&numero[2]&(~numero[1])));
-            F <= ~(((~numero[4])&(~numero[2])&(~numero[1]))|((~numero[4])&numero[3]&(~numero[2]))|((~numero[4])&numero[3]&(~numero[1]))|(numero[4]&(~numero[3])&(~numero[2])));
-            G <= ~((numero[4]|((~numero[3])&numero[2])|(numero[2]&(~numero[1]))|(numero[3]&(~numero[2]))));
+        else if (estado == falha) begin
+            A <= 1'b1;
+            B <= 1'b0;
+            C <= 1'b0;
+            D <= 1'b0;
+            E <= 1'b1;
+            F <= 1'b1;
+            G <= 1'b1;
+        end
+        else if (insere == 1'b1) begin
+            A <= (((~numero[4])&numero[2])|((~numero[4])&(~numero[3])&(~numero[1]))|((~numero[4])&numero[3]&numero[1])|(numero[4]&(~numero[3])&(~numero[2])));
+            B <= (((~numero[4])&(~numero[3]))|((~numero[3]&(~numero[2])))|((~numero[4])&(~numero[2])&(~numero[1]))|((~numero[4])&numero[2]&numero[1]));
+            C <= (((~numero[3])&(~numero[2]))|((~numero[4])&numero[1])|((~numero[4])&numero[3]));
+            D <= (((~numero[4])&(~numero[3])&(~numero[1]))|((~numero[4])&(~numero[3])&numero[2])|((~numero[4])&numero[2]&(~numero[1]))|(numero[4]&(~numero[3])&(~numero[2]))|((~numero[4])&(numero[3])&(~numero[2])&numero[1]));
+            E <= (((~numero[3])&(~numero[2])&(~numero[1]))|((~numero[4])&numero[2]&(~numero[1])));
+            F <= (((~numero[4])&(~numero[2])&(~numero[1]))|((~numero[4])&numero[3]&(~numero[2]))|((~numero[4])&numero[3]&(~numero[1]))|(numero[4]&(~numero[3])&(~numero[2])));
+            G <= ((numero[4]|((~numero[3])&numero[2])|(numero[2]&(~numero[1]))|(numero[3]&(~numero[2]))));
         end
     end
 endmodule
