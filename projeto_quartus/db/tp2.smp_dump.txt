@@ -1,0 +1,22 @@
+
+State Machine - |maquina|proximo_estado
+Name proximo_estado.falha proximo_estado.um proximo_estado.oito proximo_estado.nove_final proximo_estado.zero proximo_estado.nove proximo_estado.cinco proximo_estado.inicial 
+proximo_estado.inicial 0 0 0 0 0 0 0 0 
+proximo_estado.cinco 0 0 0 0 0 0 1 1 
+proximo_estado.nove 0 0 0 0 0 1 0 1 
+proximo_estado.zero 0 0 0 0 1 0 0 1 
+proximo_estado.nove_final 0 0 0 1 0 0 0 1 
+proximo_estado.oito 0 0 1 0 0 0 0 1 
+proximo_estado.um 0 1 0 0 0 0 0 1 
+proximo_estado.falha 1 0 0 0 0 0 0 1 
+
+State Machine - |maquina|estado
+Name estado.falha estado.um estado.oito estado.nove_final estado.zero estado.nove estado.cinco estado.inicial 
+estado.inicial 0 0 0 0 0 0 0 0 
+estado.cinco 0 0 0 0 0 0 1 1 
+estado.nove 0 0 0 0 0 1 0 1 
+estado.zero 0 0 0 0 1 0 0 1 
+estado.nove_final 0 0 0 1 0 0 0 1 
+estado.oito 0 0 1 0 0 0 0 1 
+estado.um 0 1 0 0 0 0 0 1 
+estado.falha 1 0 0 0 0 0 0 1 
