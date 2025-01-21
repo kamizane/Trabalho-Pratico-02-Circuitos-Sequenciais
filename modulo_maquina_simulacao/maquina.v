@@ -31,6 +31,7 @@ module maquina(
 
     always @(posedge clk) begin
 		if (insere == 1'b1) begin
+        //assinala o próximo_estadon para a transição de acordo com o estado atual, o numero inserido e o LED
         case (estado)
             um:
                 proximo_estado = um;
@@ -110,13 +111,18 @@ module maquina(
                 proximo_estado = inicial;
         endcase
 		  end
+
 		  else begin
+        //reseta o LED quando a máquina reseta
 		  if (reset == 1'b1) begin
 					proximo_estado = inicial;
 					LED = 0;
 			end
 		  end
     end
+
+//bloco responsável por configurar os segmentos do display de acordo com: 
+//o reset, o insere, o estado atual, o LED e a entrada numero
     always @(clk) begin
 		  if (reset == 1'b1) begin
 			A <= 1'b1;
@@ -167,3 +173,4 @@ module maquina(
         end
     end
 endmodule
+    
